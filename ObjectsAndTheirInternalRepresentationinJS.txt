@@ -1,0 +1,85 @@
+Objects
+--------
+In JavaScript, Object is a non-primitive data type.
+An object is a collection of key-value pairs, where each key is a string (or a symbol) and each value can be of any data type, including other objects.
+Objects provide a way to structure and organize data, making them an essential part of the language.
+
+
+//An example of an object
+let person = {
+  name: 'John Doe',
+  age: 25,
+  profession: 'Developer'
+};
+
+
+Internal Representation of Objects
+-----------------------------------
+Under the hood, objects in JavaScript are implemented using a data structure known as a hash table.
+This data structure allows for efficient insertion, retrieval, and deletion of key-value pairs, making it well-suited for the dynamic nature of JavaScript objects.
+
+
+Properties and Methods
+-----------------------
+Objects in JavaScript can have properties and methods.
+Properties are the key-value pairs that hold data, while methods are functions associated with the object.
+Both properties and methods are stored as entries in the object's hash table.
+
+
+// An Object car with properties and a method
+let car = {
+  brand: 'Toyota',
+  model: 'Camry',
+  year: 2022,
+  start: function() {
+    console.log('Engine started!');
+  }
+};
+
+
+Prototypes and Inheritance
+----------------------------
+JavaScript is a prototype-based language, and objects can be linked to other objects through a mechanism called prototype chaining.
+Each object has an internal property called `[[Prototype]]`, which points to another object.
+When a property or method is accessed on an object, JavaScript looks for it in the object itself and then follows the prototype chain until it finds the property or method or reaches the end of the chain.
+
+
+//Creating objects with a shared prototype
+let animal = { sound: 'Generic Animal Sound' };
+let dog = { breed: 'Labrador' };
+
+// Linking the dog object to the animal prototype
+Object.setPrototypeOf(dog, animal);
+
+// Accessing properties from the prototype chain
+console.log(dog.sound); // Outputs: Generic Animal Sound
+
+
+Object Instantiation
+---------------------
+In JavaScript, objects can be created through object literals, constructors, or classes.
+
+The literal form uses the construction of object literals that can be said as a collection of key-value pairs enclosed within a pair of curly braces.
+
+// An object literal
+let Person = {
+    name: "John",
+    age: 25,
+};
+
+When an object is created using a constructor or a class, it is an instance of that constructor or class, and it inherits properties and methods from its prototype.
+
+// Constructor function to create person objects
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+// Creating an instance of the Person constructor
+let john = new Person('John Doe', 25);
+
+
+Conclusion
+-----------
+Understanding the internal representation of objects in JavaScript is crucial for effective development.
+Objects, with their hash table-based implementation, provide a flexible and dynamic way to structure and organize data.
